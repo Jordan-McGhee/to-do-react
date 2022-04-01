@@ -1,0 +1,12 @@
+.to-do-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.to-do-item div {
+    align-self: center;
+}
+
+.buttons button {
+    margin-left: 10px;
+}
