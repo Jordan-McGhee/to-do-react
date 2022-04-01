@@ -18,7 +18,7 @@ const ToDoItem = (props) => {
                 <h3>{ props.description }</h3>
                 
                 <div className="buttons">
-                    <button>{ props.completed ? "Mark Completed" : "Completed"}</button>
+                    <button>{ props.completed ? "Completed" : "Mark Completed"}</button>
                     <button>Delete</button>
                 </div>
             </Card>
