@@ -58,12 +58,12 @@ const NewItemForm = (props) => {
                         value = { newItem }
                     />
 
-                    { hasError && <p className="error-text">Please enter a valid To-Do item.</p>}
+                    { hasError && <p className="error-text">Please enter a valid To-Do item.</p> }
                 </div>
 
                 <div className="form-buttons">
                     <button type="button" onClick={ props.onCancel }>Cancel</button>
-                    <button type="submit">Add Item</button>
+                    <button type="submit" className="submit-button">Add Item</button>
                 </div>
             </form>
         </Card>

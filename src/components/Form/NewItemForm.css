@@ -1,6 +1,9 @@
 .to-do-form { 
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    /* width: 90%; */
+    margin: auto;
 }
 
 .invalid input {
@@ -15,4 +18,36 @@
 
 .error-text {
     color: #b40e0e
+}
+
+/* .form-control {
+
+} */
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    width: 100%;
+}
+
+.form-control label {
+    text-align: left;
+    font-size: large;
+    font-weight: 800;
+}
+
+.form-control input {
+    margin: .5rem 0;
+    height: 2rem;
+    border-radius: 8px;
+}
+
+.form-buttons {
+    align-self: flex-end;
+    border: 1px solid red;
+}
+
+.submit-button {
+    margin-left: 1rem;
 }

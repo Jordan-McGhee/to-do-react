@@ -100,7 +100,7 @@ function App() {
 
       {/* form to add new to-do item */}
       { showForm &&
-        <NewItemForm
+        <NewItemForm 
           list = { toDoList }
           onAddItem = { addItemHandler }
           onCancel = { cancelAddItemHandler }

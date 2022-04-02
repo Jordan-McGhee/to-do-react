@@ -2,4 +2,19 @@
   text-align: center;
   width: 90%;
   margin: auto;
+  border: 1px solid red;
+}
+
+button {
+  padding: .75rem;
+  border: 1px solid lightblue;
+  background-color: azure;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #6e75db;
+  border: 1px solid blue;
+  color: azure;
 }
