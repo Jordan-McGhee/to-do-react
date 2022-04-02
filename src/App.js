@@ -40,14 +40,14 @@ function App() {
 
   // FORM FUNCTIONS
 
-  // shows form on button click
   const showFormHandler = () => {
+    // shows form on button click
     setShowForm(true)
   }
 
-  // accepts form input and appends to list — wrapped in useCallback to work multiple times
   const addItemHandler = useCallback((description) => {
 
+    // accepts form input and appends to list — wrapped in useCallback to work multiple times
     // variable to keep track of what next id for newest item will be
     let toDoID = toDoList.length + 1
 
@@ -70,10 +70,25 @@ function App() {
     // function is dependent on what our current list state is, so added as dependency
   }, [ toDoList ])
 
-  // changes show form state and hides form
+  
   const cancelAddItemHandler = () => {
+    
+    // changes show form state and hides form
     setShowForm(false)
   }
+
+  // const deleteItemHandler = useEffect((id) => {
+  //   // deletes an item from our list of to-dos by ID
+  //   console.log("entered deleteItemHandler")
+  //   // updates our list state to a new list with that item filtered out
+  //   setToDoList((prevList) => {
+  //     console.log("Entered update state function")
+
+  //     const newList = prevList.filter(item => item.id !== id)
+  //     console.log(newList)
+  //     return newList
+  //   })
+  // }, [ toDoList ])
 
   return (
     <div className='App'>

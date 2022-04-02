@@ -16,11 +16,19 @@ const NewItemForm = (props) => {
     // PROMPT IF USER CLICKS OUT OR PRESSES CANCEL
     // CLEAR ENTERED VALUE OF FORM AFTER SUBMISSION --done
 
-    // STATE AND FUNCTION TO TRACK USER INPUT IN FORM
+    // STATE AND FUNCTION TO TRACK USER INPUT AND IF INPUT WAS TOUCHED IN FORM
     const [ newItem, setNewItem ] = useState('')
+    const [ isTouched, setIsTouched ] = useState(false)
 
-    const inputChangeHandler = (event) => {
+    const enteredItemIsValid = newItem.trim() !== "" && newItem.length > 2 && isTouched
+    const hasError = !enteredItemIsValid && isTouched
+
+    const inputChangeHandler = event => {
         setNewItem(event.target.value)
+    }
+
+    const itemBlurHandler = event => {
+        setIsTouched(true)
     }
 
     // PREVENTS FORM FROM SUBMITTING. ADDS NEW ITEM TO LIST
@@ -30,21 +38,27 @@ const NewItemForm = (props) => {
         // append item to to-do list
         props.onAddItem(newItem)
 
-        // reset input value
+        // reset input value & blur status
         setNewItem('')
+        setIsTouched(false)
     }
+
+    const inputClasses = !hasError ? "form-control" : "form-control invalid"
 
     return (
         <Card>
             <form onSubmit={ formSubmitHandler } className = "to-do-form">
-                <div>
+                <div className= { inputClasses }>
                     <label htmlFor="new-item">Add New Item</label>
                     <input 
                         type = "text"
                         name = "new-item"
                         onChange = { inputChangeHandler }
+                        onBlur = { itemBlurHandler }
                         value = { newItem }
                     />
+
+                    { hasError && <p className="error-text">Please enter a valid To-Do item.</p>}
                 </div>
 
                 <div className="form-buttons">
