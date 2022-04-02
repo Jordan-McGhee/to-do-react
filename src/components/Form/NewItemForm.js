@@ -16,13 +16,14 @@ const NewItemForm = (props) => {
     // PROMPT IF USER CLICKS OUT OR PRESSES CANCEL
     // CLEAR ENTERED VALUE OF FORM AFTER SUBMISSION --done
 
-
+    // STATE AND FUNCTION TO TRACK USER INPUT IN FORM
     const [ newItem, setNewItem ] = useState('')
 
     const inputChangeHandler = (event) => {
         setNewItem(event.target.value)
     }
 
+    // PREVENTS FORM FROM SUBMITTING. ADDS NEW ITEM TO LIST
     const formSubmitHandler = (event) => {
         event.preventDefault()
 

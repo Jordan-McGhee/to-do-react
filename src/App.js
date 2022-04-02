@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import './App.css';
 
@@ -45,33 +45,30 @@ function App() {
     setShowForm(true)
   }
 
-  // variable to keep track of id when adding new item
-  
+  // accepts form input and appends to list — wrapped in useCallback to work multiple times
+  const addItemHandler = useCallback((description) => {
 
-  // accepts form input and appends to list
-  const addItemHandler = (description) => {
+    // variable to keep track of what next id for newest item will be
+    let toDoID = toDoList.length + 1
 
-    let toDoID = DUMMY_LIST.length + 1
-
-    // create new object
+    // create new object to append to our item array
     const newToDoItem = {
       id: "td" + toDoID.toString(),
       description: description,
       completed: false
     }
 
-    // push object to list
-    DUMMY_LIST.push(newToDoItem)
+    // update state list with previous list and added new item to it
+    setToDoList((prevList) => {
+      return [ ...prevList, newToDoItem ]
+    })
+
+    // test logs to make sure new item and id are updated correctly
     console.log(`Added new item: ${newToDoItem.id} ${newToDoItem.description}`)
-
-    setToDoList(DUMMY_LIST)
-
-    // increment toDoID
-    toDoID++
     console.log(`New toDoID: ${toDoID}`)
 
-    setShowForm(false)
-  }
+    // function is dependent on what our current list state is, so added as dependency
+  }, [ toDoList ])
 
   // changes show form state and hides form
   const cancelAddItemHandler = () => {
@@ -88,7 +85,8 @@ function App() {
 
       {/* form to add new to-do item */}
       { showForm &&
-        <NewItemForm 
+        <NewItemForm
+          list = { toDoList }
           onAddItem = { addItemHandler }
           onCancel = { cancelAddItemHandler }
         />
