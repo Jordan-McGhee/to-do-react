@@ -11,7 +11,7 @@ const NewItemForm = (props) => {
     
     // NICE TO HAVE
     // STATE OR REF TO TRACK USER INPUT --done
-    // VALIDATION
+    // VALIDATION --done
     // ERROR HANDLING
     // PROMPT IF USER CLICKS OUT OR PRESSES CANCEL
     // CLEAR ENTERED VALUE OF FORM AFTER SUBMISSION --done
@@ -63,7 +63,8 @@ const NewItemForm = (props) => {
 
                 <div className="form-buttons">
                     <button type="button" onClick={ props.onCancel }>Cancel</button>
-                    <button type="submit" className="submit-button">Add Item</button>
+                    <button type="submit" className="submit-button"
+                    disabled = {!enteredItemIsValid}>Add Item</button>
                 </div>
             </form>
         </Card>

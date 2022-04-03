@@ -1,5 +1,5 @@
 .to-do-list {
-    margin: auto;
+    margin: 1rem auto;
     /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
