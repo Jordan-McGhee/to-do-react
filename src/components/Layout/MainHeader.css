@@ -1,7 +1,7 @@
 .nav-header {
     display: flex;
     justify-content: space-between;
-    width: 95%;
+    /* width: 95%; */
     margin: auto;
     height: 3rem;
     padding: 1.5rem;

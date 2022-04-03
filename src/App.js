@@ -77,23 +77,46 @@ function App() {
     setShowForm(false)
   }
 
-  // const deleteItemHandler = useEffect((id) => {
-  //   // deletes an item from our list of to-dos by ID
-  //   console.log("entered deleteItemHandler")
-  //   // updates our list state to a new list with that item filtered out
-  //   setToDoList((prevList) => {
-  //     console.log("Entered update state function")
+  const changeCompletedHandler = (id) => {
+    // updates the completed status of an item
+    console.log("entered changeCompletedHandler")
 
-  //     const newList = prevList.filter(item => item.id !== id)
-  //     console.log(newList)
-  //     return newList
-  //   })
-  // }, [ toDoList ])
+    const itemToUpdate = toDoList.find(item => item.id === id)
+    console.log(`Item to update: ${itemToUpdate.description} ${itemToUpdate.completed}`)
+
+    console.log("Before: " + itemToUpdate.completed)
+    itemToUpdate.completed = !itemToUpdate.completed
+    console.log("After: " + itemToUpdate.completed)
+
+    setToDoList((prevList) => {
+      const newList = prevList.filter(item => item.id !== id)
+
+      return [ ...newList, itemToUpdate ]
+    })
+  }
+
+  const deleteItemHandler = (id) => {
+    // deletes an item from our list of to-dos by ID
+    console.log("entered deleteItemHandler")
+    // updates our list state to a new list with that item filtered out
+    setToDoList((prevList) => {
+      console.log("Entered update state function")
+
+      const newList = prevList.filter(item => item.id !== id)
+      console.log(newList)
+      return newList
+    })
+  }
+
 
   return (
     <div className='App'>
       <MainHeader />
-      <ToDoList items = { toDoList } />
+      <ToDoList
+        items = { toDoList }
+        onDelete = { deleteItemHandler }
+        onChange = { changeCompletedHandler }
+      />
       
       {/* button rendered if not currently adding item */}
       { !showForm && <button onClick = { showFormHandler }>Add New Item</button> }

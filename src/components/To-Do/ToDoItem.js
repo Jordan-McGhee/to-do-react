@@ -2,14 +2,6 @@ import Card from "../UI/Card"
 import "./ToDoItem.css"
 
 const ToDoItem = (props) => {
-    
-    // const buttonClickHandler = () => {
-    //     if (!itemCompleted) {
-    //         itemCompleted = true
-    //     } else {
-    //         itemCompleted = false
-    //     }
-    // }
 
     return (
         <li>
@@ -18,8 +10,8 @@ const ToDoItem = (props) => {
                 <h3>{ props.description }</h3>
                 
                 <div className="buttons">
-                    <button>{ props.completed ? "Completed" : "Mark Completed"}</button>
-                    <button>Delete</button>
+                    <button onClick= { props.onChange }>{ props.completed ? "Completed" : "Mark Completed"}</button>
+                    <button onClick = { props.onDelete }>Delete</button>
                 </div>
             </Card>
 

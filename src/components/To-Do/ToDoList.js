@@ -11,6 +11,8 @@ const ToDoList = (props) => {
                 key = { item.id }
                 description = { item.description }
                 completed = { item.completed }
+                onDelete = {() => props.onDelete(item.id) }
+                onChange = {() => props.onChange(item.id)}
             />
             ))}
         </ul>
