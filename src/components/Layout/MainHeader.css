@@ -3,10 +3,10 @@
     justify-content: space-between;
     width: 95%;
     margin: auto;
-    height: 5rem;
+    height: 3rem;
     padding: 1.5rem;
     align-items: baseline;
-    border: 1px solid green;
+    background-color: aliceblue;
 }
 
 .nav-header ul {

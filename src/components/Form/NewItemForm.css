@@ -6,6 +6,10 @@
     margin: auto;
 }
 
+.form-card {
+    width: 92.5%;
+}
+
 .invalid input {
     border: 1px solid red;
     background-color: #fddddd;

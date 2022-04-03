@@ -46,7 +46,7 @@ const NewItemForm = (props) => {
     const inputClasses = !hasError ? "form-control" : "form-control invalid"
 
     return (
-        <Card>
+        <Card className = "form-card">
             <form onSubmit={ formSubmitHandler } className = "to-do-form">
                 <div className= { inputClasses }>
                     <label htmlFor="new-item">Add New Item</label>
