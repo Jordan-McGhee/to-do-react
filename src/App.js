@@ -5,6 +5,7 @@ import './App.css';
 import MainHeader from './components/Layout/MainHeader';
 import ToDoList from './components/To-Do/ToDoList';
 import NewItemForm from './components/Form/NewItemForm';
+import NoItems from "./components/To-Do/NoItems"
 
 function App() {
 
@@ -36,6 +37,15 @@ function App() {
 
   // STATE HOLDING LIST SO WHEN A NEW ITEM IS ADDED, COMPONENT RE-RENDERS
   const [ toDoList, setToDoList ] = useState(DUMMY_LIST)
+
+  // VAR TO CHECK IF THERE ARE ANY ITEMS IN toDoList
+  let hasToDoItems
+
+  if (toDoList.length === 0) {
+    hasToDoItems = false
+  } else {
+    hasToDoItems = true
+  }
 
 
   // FORM FUNCTIONS
@@ -112,11 +122,17 @@ function App() {
   return (
     <div className='App'>
       <MainHeader />
-      <ToDoList
-        items = { toDoList }
-        onDelete = { deleteItemHandler }
-        onChange = { changeCompletedHandler }
-      />
+
+      { hasToDoItems ?
+        <ToDoList
+          items = { toDoList }
+          onDelete = { deleteItemHandler }
+          onChange = { changeCompletedHandler }
+        /> :
+
+        <NoItems />
+      }
+      
       
       {/* button rendered if not currently adding item */}
       { !showForm && <button onClick = { showFormHandler }>Add New Item</button> }
