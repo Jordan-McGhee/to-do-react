@@ -18,8 +18,8 @@ function App() {
   // INPUT AND BUTTON COMPONENTS
 
   // ISSUES
-  // FORM ONLY WORKS ONCE - useEffect or useCallback maybe?
-  // FORM CARD NEEDS DIFFERENT STYLING TO MATCH REST OF PAGE
+  // FORM ONLY WORKS ONCE - useEffect or useCallback maybe? - fixed
+  // FORM CARD NEEDS DIFFERENT STYLING TO MATCH REST OF PAGE - fixed
 
 
   // DUMMY PLACEHOLDER LIST
@@ -127,11 +127,10 @@ function App() {
           items = { toDoList }
           onDelete = { deleteItemHandler }
           onChange = { changeCompletedHandler }
-        /> :
-
+        />
+          :
         <NoItems />
       }
-      
       
       {/* button rendered if not currently adding item */}
       { !showForm && <button onClick = { showFormHandler }>Add New Item</button> }

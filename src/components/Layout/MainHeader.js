@@ -20,11 +20,7 @@ const MainHeader = () => {
                 <ul>
 
                     <li>
-                        New To Do
-                    </li>
-
-                    <li>
-                        LOGOUT
+                        Welcome, User!
                     </li>
 
                 </ul>
