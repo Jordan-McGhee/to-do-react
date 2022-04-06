@@ -31,7 +31,6 @@ function App() {
     { id: "td5", description: "Make this app again again again again", completed: false}
 ]
 
-
   // USING STATE TO RENDER FORM INPUT FOR NEW TO-DO LIST ITEMS
   const [ showForm, setShowForm ] = useState(false)
 
